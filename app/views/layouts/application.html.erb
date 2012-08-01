@@ -20,11 +20,25 @@
             <span class="icon-bar"></span>
           </a>
           <%= link_to "Interfraternal Pong League", :root, :class => "brand" %>
+          <% if logged_in? %>
+            <div class="btn-group pull-right">
+              <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#"><i class="icon-user"></i> <%= current_player.username %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to logout_path do %>
+                    <i class="icon-lock"></i> Sign Out
+                  <% end %>
+                </li>
+              </ul>
+            </div>	
+          <% end %>
           <div class="nav-collapse collapse">
             <ul class="nav nav-pills">
-              <li><%= link_to "Teams", :teams %></li>
+              <li><%= link_to "Standings", :teams %></li>
               <li><%= link_to "Houses", :houses %></li>
-              <li><%= link_to "Matches", :matches %></li>
+              <li><%= link_to "Schedule", :matches %></li>
             </ul>
           </div>
         </div>
@@ -34,6 +48,15 @@
     <div class="container">
       <div class="content">
            <div class="well">
+              <% if flash[:notice] %>
+                <div class="alert alert-info"><a class="close" data-dismiss="alert" href="#">&times;</a><%= flash[:notice] %></div>
+              <% end %>
+              <% if flash[:error] %>
+                <div class= "alert alert-error"><a class="close" data-dismiss="alert" href="#">&times;</a><%= flash[:error] %></div>
+              <% end %>
+              <% if flash[:alert] %>
+                <div class= "alert alert-error"><a class="close" data-dismiss="alert" href="#">&times;</a><%= flash[:alert] %></div>
+              <% end %>
               <%= yield %>
             </div>
       </div><!--/content-->
