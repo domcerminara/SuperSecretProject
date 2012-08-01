@@ -21,6 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'nifty-generators', :group => :development
 gem 'twitter-bootstrap-rails'
 
 # To use ActiveModel has_secure_password
@@ -37,3 +38,5 @@ gem 'twitter-bootstrap-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "mocha", :group => :test
