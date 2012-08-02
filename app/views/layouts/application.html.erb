@@ -22,7 +22,7 @@
           <%= link_to "Interfraternal Pong League", :root, :class => "brand" %>
           <% if logged_in? %>
             <div class="btn-group pull-right">
-              <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#"><i class="icon-user"></i> <%= current_player.username %>
+              <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#"><i class="icon-user"></i> <%= current_player.first_name %> <%= current_player.last_name %>
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">

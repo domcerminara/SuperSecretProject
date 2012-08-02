@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801234543) do
+ActiveRecord::Schema.define(:version => 20120801184340) do
 
   create_table "games", :force => true do |t|
     t.integer  "cup_differential"
@@ -33,21 +33,22 @@ ActiveRecord::Schema.define(:version => 20120801234543) do
   end
 
   create_table "players", :force => true do |t|
-    t.string   "username"
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "phone"
+    t.integer  "team_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "teams", :force => true do |t|
     t.string   "name"
     t.integer  "house_number"
     t.string   "street"
+    t.integer  "house_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

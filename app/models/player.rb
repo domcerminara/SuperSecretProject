@@ -1,6 +1,9 @@
 class Player < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name, :phone
+  attr_accessible :team_id, :email, :password, :password_confirmation, :first_name, :last_name, :phone
+
+  belongs_to :team
+  has_one :house, :through => :team
 
   attr_accessor :password
   before_save :prepare_password
