@@ -1,20 +1,54 @@
-<%= form_for @player do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :email, "Email Address" %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation, "Confirm Password" %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p><%= f.submit (@player.new_record? ? "Sign up" : "Update") %></p>
+<%= form_for @player, :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
+    <%= f.error_messages %>
+
+    <legend>Sign Up for IPL</legend>
+
+    <div class="control-group">
+      <%= f.label :first_name, "First Name", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :last_name, "Last Name", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :phone, "Cell Phone", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :phone %>
+        <p class="help-inline">Digits Only</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :email, "Email Address", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :password, :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :password_confirmation, "Confirm Password", :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit (@player.new_record? ? "Sign Up" : "Update"), :class => "btn btn-large btn-info" %>
+    </div>
+  </fieldset>
 <% end %>
