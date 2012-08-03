@@ -1,27 +1,12 @@
-<h1>Listing teams</h1>
+<h1>Registered Teams</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>House number</th>
-    <th>Street</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul class="nav nav-tabs nav-stacked">
+  <% @teams.each do |team| %>
+    <li>
+      <%= link_to team.name, team %>
+    </li>
+  <% end %>
+</ul>
 
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= team.name %></td>
-    <td><%= team.house_number %></td>
-    <td><%= team.street %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Team', new_team_path %>
+<%= link_to 'Register New Team', new_team_path, :class => "btn btn-info btn-large" %>

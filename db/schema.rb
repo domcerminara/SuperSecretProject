@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803002348) do
+ActiveRecord::Schema.define(:version => 20120803180955) do
 
   create_table "athletes", :force => true do |t|
     t.string   "name"
@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(:version => 20120803002348) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "games", :force => true do |t|
-    t.integer  "cup_differential"
-    t.integer  "match_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+  create_table "divisions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "houses", :force => true do |t|
@@ -36,11 +35,15 @@ ActiveRecord::Schema.define(:version => 20120803002348) do
   end
 
   create_table "matches", :force => true do |t|
-    t.string   "opponent"
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
     t.datetime "date"
-    t.integer  "team_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "winner"
+    t.integer  "loser"
+    t.integer  "home_team_cups"
+    t.integer  "away_team_cups"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "players", :force => true do |t|
@@ -60,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20120803002348) do
     t.integer  "wins"
     t.integer  "loses"
     t.integer  "cup_differential"
+    t.integer  "division_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

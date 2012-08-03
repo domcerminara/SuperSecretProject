@@ -5,6 +5,12 @@
   <%= @house.name %>
 </p>
 
+<p>
+  <b>Teams:</b>
+  <% @house.teams.each do |t| %>
+    <%= link_to t.name, t %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>

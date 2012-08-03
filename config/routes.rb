@@ -1,4 +1,6 @@
 IPL::Application.routes.draw do
+  resources :divisions
+
   resources :athletes
 
   match 'player/edit' => 'players#edit', :as => :edit_current_player
@@ -12,8 +14,6 @@ IPL::Application.routes.draw do
   resources :sessions
 
   resources :players
-
-  resources :games
 
   resources :matches
 

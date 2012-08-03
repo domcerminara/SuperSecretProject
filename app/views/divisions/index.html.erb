@@ -1,0 +1,23 @@
+<h1>Current Standings</h1>
+
+  <div id="accordion" class="accordion">
+    <% @divisions.each do |d| %>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" href="#collapse<%= d.name %>" data-toggle="collapse">
+            <%= d.name %>
+          </a>
+        </div>
+        <div id="collapse<%= d.name %>" class="accordion-body collapse">
+          <ul class="nav nav-tabs nav-stacked">
+            <% d.teams.each do |team| %>
+              <li>
+                <%= link_to team.name, team %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+

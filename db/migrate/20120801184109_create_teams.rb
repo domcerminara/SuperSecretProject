@@ -8,6 +8,7 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :wins
       t.integer :loses
       t.integer :cup_differential
+      t.integer :division_id
 
       t.timestamps
     end

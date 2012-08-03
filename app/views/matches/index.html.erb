@@ -1,25 +1,12 @@
-<h1>Listing matches</h1>
+<h1>Schedule</h1>
 
-<table>
-  <tr>
-    <th>Opponent</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul class="nav nav-tabs nav-stacked">
+  <% @matches.each do |m| %>
+    <li>
+      <%= link_to "#{m.home_team_id} vs. #{m.away_team_id}", m %>
+    </li>
+  <% end %>
+</ul>
 
-<% @matches.each do |match| %>
-  <tr>
-    <td><%= match.opponent %></td>
-    <td><%= match.date %></td>
-    <td><%= link_to 'Show', match %></td>
-    <td><%= link_to 'Edit', edit_match_path(match) %></td>
-    <td><%= link_to 'Destroy', match, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Match', new_match_path %>
+<%= link_to 'Schedule New Match', new_match_path %>

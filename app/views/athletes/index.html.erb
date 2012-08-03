@@ -1,21 +1,12 @@
-<% title "Athletes" %>
+<h1>Registered Players</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-  </tr>
-  <% for athlete in @athletes %>
-    <tr>
-      <td><%= athlete.name %></td>
-      <td><%= athlete.email %></td>
-      <td><%= athlete.phone %></td>
-      <td><%= link_to "Show", athlete %></td>
-      <td><%= link_to "Edit", edit_athlete_path(athlete) %></td>
-      <td><%= link_to "Destroy", athlete, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+<ul class="nav nav-tabs nav-stacked">
+  <% @athletes.each do |a| %>
+    <li>
+      <%= link_to a.name, a %>
+    </li>
   <% end %>
-</table>
+</ul>
 
-<p><%= link_to "New Athlete", new_athlete_path %></p>
+
+<%= link_to 'Register New Player', new_athlete_path, :class => "btn btn-info btn-large" %>

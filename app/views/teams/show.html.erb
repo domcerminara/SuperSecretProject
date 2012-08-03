@@ -17,12 +17,14 @@
 
 <p>
   <b>Fraternity:</b>
-  <%= @team.house.name %>
+  <%= link_to @team.house.name, @team.house %>
 </p>
 
 <p>
   <b>Members:</b>
-  <%= @team.athletes %>
+  <% @team.athletes.each do |a| %>
+    <%= link_to a.name, a %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |

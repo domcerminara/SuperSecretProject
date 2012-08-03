@@ -41,6 +41,13 @@
         </div>
       </div>
 
+      <div class="control-group">
+        <%= f.label :division_id, "Division", :class => "control-label" %>
+        <div class="controls">
+          <%= f.collection_select(:division_id, Division.all, :id, :name, :prompt => false) %>
+        </div>
+      </div>
+
     <div class="form-actions">
       <%= f.submit :class => "btn btn-large btn-info" %>
     </div>
