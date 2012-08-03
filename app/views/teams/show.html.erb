@@ -15,6 +15,15 @@
   <%= @team.street %>
 </p>
 
+<p>
+  <b>Fraternity:</b>
+  <%= @team.house.name %>
+</p>
+
+<p>
+  <b>Members:</b>
+  <%= @team.athletes %>
+</p>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

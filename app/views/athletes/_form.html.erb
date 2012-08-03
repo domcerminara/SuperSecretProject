@@ -1,0 +1,48 @@
+<%= form_for @athlete, :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
+    <% if @athlete.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@athlete.errors.count, "error") %> prohibited this athlete from being saved:</h2>
+
+        <ul>
+        <% @athlete.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :name, "Name", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :phone, "Cell Phone", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :phone %>
+        <p class="help-inline">Digits Only</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :email, "Email Address", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :team, "Team Name", :class => "control-label" %>
+      <div class="controls">
+        <%= f.collection_select(:team_id, Team.all, :id, :name, :prompt => false) %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit :class => "btn btn-large btn-info" %>
+    </div>
+  </fieldset>
+<% end %>

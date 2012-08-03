@@ -1,4 +1,6 @@
 IPL::Application.routes.draw do
+  resources :athletes
+
   match 'player/edit' => 'players#edit', :as => :edit_current_player
 
   match 'signup' => 'players#new', :as => :signup

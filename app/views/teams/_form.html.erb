@@ -1,29 +1,49 @@
-<%= form_for(@team) do |f| %>
-  <% if @team.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+<%= form_for @team, :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
 
-      <ul>
-      <% @team.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <% if @team.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+        <ul>
+        <% @team.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :name, "Name", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :house_number %><br />
-    <%= f.number_field :house_number %>
-  </div>
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group">
+      <%= f.label :house_number, "House Number", :class => "control-label" %>
+      <div class="controls">
+        <%= f.number_field :house_number %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :street, "Street Address", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :street %>
+      </div>
+    </div>
+
+      <div class="control-group">
+        <%= f.label :house_id, "Fraternity Affiliation", :class => "control-label" %>
+        <div class="controls">
+          <%= f.collection_select(:house_id, House.all, :id, :name, :prompt => false) %>
+        </div>
+      </div>
+
+    <div class="form-actions">
+      <%= f.submit :class => "btn btn-large btn-info" %>
+    </div>
+
+  </fieldset>
 <% end %>

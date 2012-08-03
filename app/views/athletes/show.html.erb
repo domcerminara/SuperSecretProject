@@ -1,0 +1,24 @@
+<% title "Athlete" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @athlete.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @athlete.email %>
+</p>
+<p>
+  <strong>Phone:</strong>
+  <%= @athlete.phone %>
+</p>
+<p>
+  <strong>Team:</strong>
+  <%= @athlete.team.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_athlete_path(@athlete) %> |
+  <%= link_to "Destroy", @athlete, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", athletes_path %>
+</p>
