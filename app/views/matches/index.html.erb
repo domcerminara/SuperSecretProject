@@ -1,12 +1,29 @@
 <h1>Schedule</h1>
 
 <ul class="nav nav-tabs nav-stacked">
-  <% @matches.each do |m| %>
-    <li>
-      <%= link_to "#{m.home_team_id} vs. #{m.away_team_id}", m %>
-    </li>
-  <% end %>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Match.order('date').each do |m| %>
+        <li>
+          <tr>
+            <td><%= m.home_team.name %></td>
+            <td><%= m.away_team.name %></td>
+            <td><%= m.date.strftime("%B %d, %Y") %></td>
+            <td><%= link_to "View", m %></td>
+          </tr>
+        </li>
+      <% end %>
+    </tbody>
+  </table>
 </ul>
 
 
-<%= link_to 'Schedule New Match', new_match_path %>
+<%= link_to 'Schedule New Match', new_match_path, :class => "btn btn-info btn-large" %>

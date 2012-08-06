@@ -33,6 +33,34 @@
       </div>
     </div>
 
+    <div class="control-group">
+      <%= f.label :winner, "Winner", :class => "control-label" %>
+      <div class="controls">
+        <%= f.collection_select(:winner, Team.all, :id, :name, :prompt => false) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :loser, "Loser", :class => "control-label" %>
+      <div class="controls">
+        <%= f.collection_select(:loser, Team.all, :id, :name, :prompt => false) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :away_team_cups, "Away Team Cups Made", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :away_team_cups %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :home_team_cups, "Home Team Cups Made", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :home_team_cups %>
+      </div>
+    </div>
+
     <div class="form-actions">
       <%= f.submit :class => "btn btn-large btn-info" %>
     </div>

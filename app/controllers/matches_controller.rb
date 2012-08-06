@@ -57,6 +57,7 @@ class MatchesController < ApplicationController
   # PUT /matches/1.json
   def update
     @match = Match.find(params[:id])
+    @match.updateStandings
 
     respond_to do |format|
       if @match.update_attributes(params[:match])

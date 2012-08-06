@@ -2,19 +2,38 @@
 
 <p>
   <b>Home Team:</b>
-  <%= @match.home_team_id %>
+  <%= link_to @match.home_team.name, team_path(@match.home_team) %>
 </p>
 
 <p>
   <b>Away Team:</b>
-  <%= @match.away_team_id %>
+  <%= link_to @match.away_team.name, team_path(@match.away_team) %>
 </p>
 
 <p>
   <b>Date:</b>
-  <%= @match.date %>
+  <%= @match.date.strftime("%B %d, %Y") %>
 </p>
 
+<p>
+  <b>Winner:</b>
+  <%= @match.winning_team.name %>
+</p>
+
+<p>
+  <b>Loser:</b>
+  <%= @match.losing_team.name %>
+</p>
+
+<p>
+  <b>Home Team Cups:</b>
+  <%= @match.home_team_cups  %>
+</p>
+
+<p>
+  <b>Away Team Cups:</b>
+  <%= @match.away_team_cups  %>
+</p>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>

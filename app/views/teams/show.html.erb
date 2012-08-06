@@ -27,5 +27,25 @@
   <% end %>
 </p>
 
+<p>
+  <b>Division:</b>
+  <%= link_to @team.division.name, :divisions %>
+</p>
+
+<p>
+  <b>Wins:</b>
+  <%= @team.wins %>
+</p>
+
+<p>
+  <b>Losses:</b>
+  <%= @team.loses %>
+</p>
+
+<p>
+  <b>Cup Differential:</b>
+  <%= @team.cup_differential %>
+</p>
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
